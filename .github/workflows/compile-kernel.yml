@@ -31,7 +31,7 @@ on:
           - 6.6.y
           - 6.1.y_6.6.y
           - 5.15.y_5.10.y
-          - 5.10.214
+          - 5.10.216
       kernel_auto:
         description: "Auto use the latest kernel"
         required: false
@@ -71,7 +71,7 @@ on:
         options:
           - -ophub
           - -nt
-          - +
+          - nt
 
 env:
   TZ: America/New_York
