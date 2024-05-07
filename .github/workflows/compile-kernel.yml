@@ -71,7 +71,6 @@ on:
         options:
           - -ophub
           - -nt
-          - nt
 
 env:
   TZ: America/New_York
