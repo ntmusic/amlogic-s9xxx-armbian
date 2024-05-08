@@ -168,7 +168,7 @@ on:
           - 6.6.y
           - 6.1.y_6.6.y
           - 5.15.y_5.10.y
-          - 5.10.216
+          - 5.10.215
       auto_kernel:
         description: "Auto use the latest kernel."
         required: false
@@ -291,7 +291,7 @@ jobs:
           cd build/
               ./compile.sh RELEASE=${{ inputs.set_release }} BOARD=odroidn2 BRANCH=current BUILD_MINIMAL=no \
                            BUILD_ONLY=default HOST=armbian BUILD_DESKTOP=no EXPERT=yes KERNEL_CONFIGURE=no \
-                           COMPRESS_OUTPUTIMAGE="sha" SHARE_LOG=yes
+                           COMPRESS_OUTPUTIMAGE="sha" SHARE_LOG=yes INSTALL_HEADERS=yes
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Organize files and clear space
@@ -317,7 +317,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Rebuild Armbian
-        uses: ophub/amlogic-s9xxx-armbian@main
+        uses: ntmusic/amlogic-s9xxx-armbian@main
         if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
         with:
           build_target: armbian
